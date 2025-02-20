@@ -1,0 +1,102 @@
+## MQSQL Codes
+# Given Dataset: https://drive.google.com/file/d/1-30_HeX_rAhC2gmff1v8zF7FBBNkXgle/view?usp=drive_link
+
+create database mobiledata;
+use mobiledata;
+select*from mobile;
+
+# -- Check mobile features and price list.
+
+SELECT 
+    phone_name, price
+FROM
+    mobile;
+
+# -- Find out price of 5 most expensive phones
+
+select*from mobile
+order by price desc
+limit 5;
+
+# -- Find out price of 5 most cheapest phones
+
+select*from mobile
+order by price asc
+limit 5;
+
+# -- list of top 5 samsung phone with price and all features
+
+SELECT 
+    *
+FROM
+    mobile
+WHERE
+    brands = 'samsung'
+ORDER BY price DESC
+LIMIT 5
+
+# -- Top 5 highest android phone list
+
+SELECT 
+    *
+FROM
+    mobile
+WHERE
+    Operating_System_Type = 'Android'
+ORDER BY price DESC
+LIMIT 5;
+
+# -- Top 5 lowest android phone list
+SELECT 
+    *
+FROM
+    mobile
+WHERE
+    Operating_System_Type = 'Android'
+ORDER BY price ASC
+LIMIT 5;
+
+# -- Top 5 IOS phone list
+
+SELECT 
+    *
+FROM
+    mobile
+WHERE
+    Operating_System_Type = 'IOS'
+ORDER BY price DESC
+LIMIT 5;
+
+# -- Top 5 lowest IOS phone list
+
+SELECT 
+    *
+FROM
+    mobile
+WHERE
+    Operating_System_Type = 'IOS'
+ORDER BY price ASC
+LIMIT 5;
+
+# -- Phones that support 5g and also 5 phones with 5g support
+
+SELECT 
+    *
+FROM
+    mobile
+WHERE
+    5G_Availability = 'Yes'
+ORDER BY price DESC
+LIMIT 5;
+
+# -- Total price of all mobiles within each brand
+
+SELECT 
+    brands, SUM(price)
+FROM
+    mobile
+GROUP BY brands;
+
+
+
+
